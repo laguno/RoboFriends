@@ -1,0 +1,20 @@
+@font-face {
+font-family: 'Candy Sniper';
+font-style: normal;
+font-weight: normal;
+src: local('Candy Sniper'), url('CANDS___.woff') format('woff');
+}
+
+h1{
+	font-family: 'Candy Sniper';
+	font-weight: 700;
+	color: #0ccac4;
+	text-shadow: black 0 0 0.4em;
+}
+.scroll-section::-webkit-scrollbar { 
+    display: none;
+} 
+.scroll-section{
+    -ms-overflow-style: none;  
+    overflow: -moz-scrollbars-none;  
+}
