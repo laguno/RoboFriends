@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import CardList from './CardList';
+import CardList from '../components/CardList';
 //import {robots} from './robots';
-import SearchBox from './SearchBox';
+import SearchBox from '../components/SearchBox';
 import './App.css';
-import Loader from './Loader';
-import './loader.css';
-import Scroll from './Scroll';
+import Loader from '../components/Loader';
+import '../components/loader.css';
+import Scroll from '../components/Scroll';
 
 
 
@@ -36,13 +36,14 @@ class App extends Component{
     }
     
     render(){
-        const filtetredRobots = this.state.robots.filter(robot => {
-            return robot.name.toLocaleLowerCase().includes(this.state.searchfield.toLowerCase())
+		const { robots,searchfield } = this.state;
+        const filtetredRobots = robots.filter(robot => {
+            return robot.name.toLocaleLowerCase().includes(searchfield.toLowerCase())
         })
-		if(this.state.robots.length === 0){
-			return <Loader />
-		}else{
-			return(
+		
+		return !robots.length ?
+			<Loader /> :
+			(
 				<div className="tc">
 					<h1 className="f-headline lh-solid">RoboFriends</h1>
 					<SearchBox searchChange={ this.onSearchChange }/>
@@ -51,7 +52,7 @@ class App extends Component{
 					</Scroll>
 				</div>
 			)
-		}
+		
     }
 
 } 
